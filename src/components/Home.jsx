@@ -12,6 +12,7 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import Cursor from "./Cursor";
+import logo from "../assets/logo-2.png";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -44,9 +45,9 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-4xl md:text-6xl font-bold text-gold-500"
+              className="text-4xl md:text-6xl font-bold text-gold-500 flex items-center justify-center gap-2"
             >
-              LUXE ESTATES
+              <img src={logo} className=" text-center mb-4" alt="Logo" />
             </motion.div>
           </motion.div>
         ) : (

@@ -1,13 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // import Link from "next/link"
 // import { Building2, Menu, X } from "lucide-react"
-import { FaBuilding } from "react-icons/fa"
+import { FaBuilding } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
-import { Link } from "react-scroll"
+import { Link } from "react-scroll";
+import logo from "../assets/logo-pragathi.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -16,34 +17,34 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
-]
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY
+      const offset = window.scrollY;
       if (offset > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLinkClick = (href) => {
-    setIsOpen(false)
+    setIsOpen(false);
     document.querySelector(href)?.scrollIntoView({
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   return (
     <motion.nav
@@ -56,10 +57,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="#home" className="flex items-center gap-2">
-          <FaBuilding className="h-8 w-8 text-teal-700" />
-          <span className="text-xl font-bold bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text text-transparent">
-            LUXE ESTATES
-          </span>
+          <img src={logo} className=" w-[200px]" />
+          {/* <span className="text-xl font-bold bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text text-transparent">
+            PRAGATHI INFRA REALTY
+          </span> */}
         </Link>
 
         {/* Desktop Navigation */}
@@ -69,8 +70,8 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={(e) => {
-                e.preventDefault()
-                handleLinkClick(link.href)
+                e.preventDefault();
+                handleLinkClick(link.href);
               }}
               className="text-slate-700 hover:text-teal-600 transition-colors relative group"
             >
@@ -88,7 +89,10 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-700 focus:outline-none">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-slate-700 focus:outline-none"
+        >
           {isOpen ? <RxCross1 size={24} /> : <CiMenuFries size={24} />}
         </button>
       </div>
@@ -109,8 +113,8 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => {
-                    e.preventDefault()
-                    handleLinkClick(link.href)
+                    e.preventDefault();
+                    handleLinkClick(link.href);
                   }}
                   className="text-slate-700 hover:text-teal-600 transition-colors py-2 text-lg"
                 >
@@ -125,5 +129,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

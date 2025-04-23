@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Link } from "react-scroll";
 // import { Building2, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import { FaBuilding, FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import logo from "../assets/pragati-infra-logo.jpg";
 
 
 export default function Footer() {
@@ -14,8 +15,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <Link href="#home" className="flex items-center gap-2 mb-6">
-              <FaBuilding className="h-8 w-8 text-teal-400" />
-              <span className="text-xl font-bold text-white">LUXE ESTATES</span>
+              <img src={logo} className=" w-[200px]" />
+              {/* <span className="text-xl font-bold text-white">PRATHI INFRA REALTY</span> */}
             </Link>
             <p className="text-slate-300 mb-6">
               Premium land properties for discerning investors and homeowners looking to build their legacy.

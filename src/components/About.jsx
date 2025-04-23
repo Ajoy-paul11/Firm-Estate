@@ -64,7 +64,8 @@ export default function About() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/placeholder.svg?height=800&width=600" 
+                  // src="/placeholder.svg?height=800&width=600" 
+                  src="https://placehold.co/600x800"
                   alt="About our company" 
                   className="w-full h-auto"
                 />
@@ -92,7 +93,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text text-transparent"
             >
-              About Luxe Estates
+              About Pragathi Infra Realty
             </motion.h2>
             <motion.div 
               initial={{ opacity: 0, width: 0 }}
@@ -109,7 +110,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-lg text-slate-600 mb-6"
             >
-              For over 25 years, Luxe Estates has been the premier developer of luxury land properties, creating opportunities for discerning investors and homeowners to build their legacy on exceptional foundations.
+              For over 25 years, Pragathi Infra has been the premier developer of luxury land properties, creating opportunities for discerning investors and homeowners to build their legacy on exceptional foundations.
             </motion.p>
             
             <motion.p 

@@ -5,42 +5,47 @@ import { motion } from "framer-motion"
 // import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 import { FiMapPin } from "react-icons/fi"
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa"
+import { image } from "framer-motion/client"
 
 
 const projects = [
   {
     id: 1,
     title: "Oakridge Estates",
-    location: "Aspen, Colorado",
+    location: "Kanakapura, Bangalore",
     description: "Premium land parcels nestled in the mountains with breathtaking views and exclusive amenities.",
-    image: "/placeholder.svg?height=600&width=800",
+    // image: "/placeholder.svg?height=600&width=800",
+    image: "https://placehold.co/800x600/",
     size: "5-10 Acres",
     price: "Starting at $2.5M",
   },
   {
     id: 2,
     title: "Coastal Highlands",
-    location: "Monterey, California",
+    location: "Mandya, Karnataka",
     description: "Oceanfront properties with private beach access and panoramic Pacific views.",
-    image: "/placeholder.svg?height=600&width=800",
+    // image: "/placeholder.svg?height=600&width=800",
+    image: "https://placehold.co/800x600/",
     size: "2-8 Acres",
     price: "Starting at $3.8M",
   },
   {
     id: 3,
     title: "Vineyard Reserve",
-    location: "Napa Valley, California",
+    location: "Kushalnagar, Karnataka",
     description: "Fertile land parcels in wine country, perfect for private estates with vineyard potential.",
-    image: "/placeholder.svg?height=600&width=800",
+    // image: "/placeholder.svg?height=600&width=800",
+    image: "https://placehold.co/800x600/",
     size: "10-25 Acres",
     price: "Starting at $4.2M",
   },
   {
     id: 4,
     title: "Desert Oasis",
-    location: "Scottsdale, Arizona",
+    location: "Harohalli, Bangalore",
     description: "Expansive desert properties with mountain views and resort-style community amenities.",
-    image: "/placeholder.svg?height=600&width=800",
+    // image: "/placeholder.svg?height=600&width=800",
+    image: "https://placehold.co/800x600/",
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
@@ -117,22 +122,22 @@ export default function Projects() {
                       <h3 className="text-3xl font-bold mb-3">{project.title}</h3>
                       <p className="text-white/80 mb-4 max-w-2xl">{project.description}</p>
 
-                      <div className="flex flex-wrap gap-4 mb-6">
+                      {/* <div className="flex flex-wrap gap-4 mb-6">
                         <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                           <span className="text-white/90">{project.size}</span>
                         </div>
                         <div className="bg-teal-500/90 px-4 py-2 rounded-full">
                           <span className="text-white font-medium">{project.price}</span>
                         </div>
-                      </div>
+                      </div> */}
 
-                      <motion.button
+                      {/* <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-white text-teal-700 px-6 py-3 rounded-md font-medium"
                       >
                         View Property
-                      </motion.button>
+                      </motion.button> */}
                     </div>
                   </div>
                 </div>

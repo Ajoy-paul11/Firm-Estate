@@ -121,7 +121,11 @@ export default function Overview() {
               className="relative z-10"
             >
               <div ref={imageRef} className="rounded-2xl overflow-hidden shadow-2xl">
-                <img src="/placeholder.svg?height=800&width=600" alt="Luxury land property" className="w-full h-auto" />
+                <img 
+                // src="/placeholder.svg?height=800&width=600" 
+                src="https://placehold.co/800x600"
+                alt="Luxury land property" 
+                className="w-full h-auto" />
               </div>
 
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">

@@ -42,16 +42,19 @@ export default function HeroSection() {
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
+            backgroundImage: "url('https://placehold.co/1920x1080/png')",
           }}
         />
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <motion.h1 className="hero-text text-5xl md:text-7xl font-bold text-white mb-6">
-          Luxury Land Properties
+        Investing in Infrastructure,
         </motion.h1>
-        <motion.p className="hero-text text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
+        <motion.h1 className="hero-text text-5xl md:text-7xl font-bold text-white mb-6">
+        Cultivating Growth.
+        </motion.h1>
+        {/* <motion.p className="hero-text text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
           Discover exclusive land opportunities in prime locations for your dream estate
         </motion.p>
         <motion.div className="hero-text flex flex-col sm:flex-row gap-4 justify-center">
@@ -69,7 +72,7 @@ export default function HeroSection() {
           >
             Book a Consultation
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <motion.div

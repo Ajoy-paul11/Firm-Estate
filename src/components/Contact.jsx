@@ -84,7 +84,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800">Phone</h4>
-                  <p className="text-slate-600">+1 (800) 123-4567</p>
+                  <p className="text-slate-600">+91 8001234567</p>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800">Email</h4>
-                  <p className="text-slate-600">info@luxeestates.com</p>
+                  <p className="text-slate-600">sales@pragathiinfrarealty.com</p>
                 </div>
               </div>
 
@@ -104,14 +104,15 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800">Office</h4>
-                  <p className="text-slate-600">123 Luxury Lane, Beverly Hills, CA 90210</p>
+                  <p className="text-slate-600">RR Nagar, Bangalore 560079</p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-xl overflow-hidden h-[300px] shadow-lg">
               <img
-                src="/placeholder.svg?height=600&width=800"
+                // src="/placeholder.svg?height=600&width=800"
+                src="https://placehold.co/800x600"
                 alt="Office location"
                 className="w-full h-full object-cover"
               />

@@ -5,10 +5,10 @@ import { motion } from "framer-motion"
 import { gsap } from "gsap"
 
 const areas = [
-  { id: "area1", name: "Hillside Estates", description: "Elevated plots with panoramic views", x: 25, y: 30 },
-  { id: "area2", name: "Lakefront Reserve", description: "Waterfront properties with private access", x: 60, y: 50 },
-  { id: "area3", name: "Woodland Retreat", description: "Secluded lots surrounded by nature", x: 40, y: 70 },
-  { id: "area4", name: "Valley View", description: "Spacious plots in the central valley", x: 75, y: 25 },
+  { id: "area1", name: "Kanakpura", description: "Elevated plots with panoramic views", x: 25, y: 30 },
+  { id: "area2", name: "Mandya", description: "Waterfront properties with private access", x: 60, y: 50 },
+  { id: "area3", name: "Mysore", description: "Secluded lots surrounded by nature", x: 40, y: 70 },
+  { id: "area4", name: "Harohalli", description: "Spacious plots in the central valley", x: 75, y: 25 },
 ]
 
 export default function Masterplan() {
@@ -112,7 +112,11 @@ export default function Masterplan() {
               viewport={{ once: true }}
               className="map-image relative rounded-xl overflow-hidden shadow-xl border-8 border-white"
             >
-              <img src="/placeholder.svg?height=600&width=800" alt="Property masterplan" className="w-full h-auto" />
+              <img 
+              // src="/placeholder.svg?height=600&width=800" 
+              src="https://placehold.co/800x600"
+              alt="Property masterplan" 
+              className="w-full h-auto" />
 
               {areas.map((area) => (
                 <div
