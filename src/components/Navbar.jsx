@@ -124,7 +124,6 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <button
-                  onClick={() => setIsModalOpen(true)}
                   className="bg-gradient-to-r from-teal-700 to-teal-500 text-white px-6 py-3 rounded-md font-medium mt-4"
                 >
                   Inquire Now

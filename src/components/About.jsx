@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { gsap } from "gsap"
 // import { CheckCircle2 } from "lucide-react"
 import { FiCheckCircle } from "react-icons/fi";
+import aboutImage from "../assets/about-firmland.png";
 
 const stats = [
   { value: "25+", label: "Years Experience" },
@@ -65,7 +66,8 @@ export default function About() {
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   // src="/placeholder.svg?height=800&width=600" 
-                  src="https://placehold.co/600x800"
+                  // src="https://placehold.co/600x800"
+                  src={aboutImage}
                   alt="About our company" 
                   className="w-full h-auto"
                 />
