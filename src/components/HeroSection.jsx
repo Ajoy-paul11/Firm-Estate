@@ -42,7 +42,7 @@ export default function HeroSection() {
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://placehold.co/1920x1080/png')",
+            backgroundImage: "url('https://ik.imagekit.io/ajoy/bg-image-firmland?updatedAt=1745409971157')",
           }}
         />
       </motion.div>
