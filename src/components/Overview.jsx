@@ -8,6 +8,7 @@ import { FiMapPin } from "react-icons/fi"
 import { LuRuler } from "react-icons/lu";
 import { FaAward } from "react-icons/fa6";
 import { FaLeaf } from "react-icons/fa";
+import overImg from "../assets/firm-overview.png";
 
 
 const features = [
@@ -57,7 +58,7 @@ export default function Overview() {
       const scrollPosition = window.scrollY
       const offset = scrollPosition * 0.1
 
-      imageRef.current.style.transform = `translateY(${offset}px)`
+      // imageRef.current.style.transform = `translateY(${offset}px)`
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -100,10 +101,10 @@ export default function Overview() {
           <div ref={ref} className="space-y-8">
             {features.map((feature, index) => (
               <div key={index} className="feature-item flex gap-6 opacity-0 translate-y-10">
-                <div className="flex-shrink-0 p-4 rounded-xl bg-teal-50 border border-teal-100">{feature.icon}</div>
+                <div className="flex-shrink-0 p-2 md:p-4 rounded-xl bg-teal-50 border border-teal-100">{feature.icon}</div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-800 mb-2">{feature.title}</h3>
-                  <p className="text-slate-600">{feature.description}</p>
+                  <h3 className="text-base md:text-xl lg:text-2xl font-semibold text-slate-800 mb-2">{feature.title}</h3>
+                  <p className="text-xs md:text-lg lg:text-xl text-slate-600">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -123,14 +124,15 @@ export default function Overview() {
               <div ref={imageRef} className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                 // src="/placeholder.svg?height=800&width=600" 
-                src="https://placehold.co/800x600"
+                // src="https://placehold.co/800x600"
+                src={overImg}
                 alt="Luxury land property" 
                 className="w-full h-auto" />
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
-                <div className="text-3xl font-bold text-teal-700">250+ Acres</div>
-                <div className="text-slate-600">Premium Land Available</div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-2 lg:p-6 rounded-xl shadow-xl">
+                <div className="text-xl lg:text-3xl font-bold text-teal-700">250+ Acres</div>
+                <div className=" text-sx lg:text-lg text-slate-600">Premium Land Available</div>
               </div>
             </motion.div>
           </div>

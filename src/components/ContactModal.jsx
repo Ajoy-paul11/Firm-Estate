@@ -128,18 +128,18 @@ export default function ContactModal({ isOpen, onClose }) {
             transition={{ type: "spring", damping: 20 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
           >
-            <div className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-2xl bg-white flex flex-col md:flex-row">
+            <div className=" max-h-[90vh] md:h-fit relative w-full max-w-4xl mx-auto overflow-x-scroll md:overflow-hidden rounded-2xl shadow-2xl bg-white flex flex-col md:flex-row">
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 p-1 rounded-full bg-white/10 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors z-10"
+                className="z-50 absolute top-4 right-4 p-1 rounded-full bg-white/10 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors "
                 aria-label="Close modal"
               >
                 <RxCross1 className="w-5 h-5" />
               </button>
 
               {/* Left Section - Design */}
-              <div className="relative w-full md:w-5/12 bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-700 p-8 md:p-12">
+              <div className="relative w-full md:w-5/12 bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-700 p-4 md:p-12">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                   <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2" />
                   <div className="absolute bottom-0 right-0 w-60 h-60 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3" />
@@ -163,7 +163,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-white/90 mb-8"
+                    className="text-white/90 md:mb-8"
                   >
                     We'd love to hear from you. Fill out the form and our team
                     will get back to you as soon as possible.
@@ -194,28 +194,31 @@ export default function ContactModal({ isOpen, onClose }) {
               </div>
 
               {/* Right Section - Form */}
-              <div className="w-full md:w-7/12 p-8 md:p-12">
+              <div className="w-full md:w-7/12 p-4 md:p-12">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+                  <h3 className=" text-xl md:text-2xl font-semibold text-gray-800 mb-2 md:mb-6">
                     Send us a message
                   </h3>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className=" space-y-2 md:space-y-6"
+                  >
                     {/* Name Field */}
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-xs md:text-sm font-medium text-gray-700 mb-1"
                       >
                         Full Name
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <FaRegUser className="h-5 w-5 text-gray-400" />
+                          <FaRegUser className="h-3 md:h-5 w-3 md:w-5 text-gray-400" />
                         </div>
                         <input
                           id="name"
@@ -240,13 +243,13 @@ export default function ContactModal({ isOpen, onClose }) {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-xs md:text-sm font-medium text-gray-700 mb-1"
                       >
                         Email Address
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <IoIosMail className="h-5 w-5 text-gray-400" />
+                          <IoIosMail className="h-3 md:h-5 w-3 md:w-5 text-gray-400" />
                         </div>
                         <input
                           id="email"
@@ -271,13 +274,13 @@ export default function ContactModal({ isOpen, onClose }) {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-xs md:text-sm font-medium text-gray-700 mb-1"
                       >
                         Phone Number
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <FiPhoneCall className="h-5 w-5 text-gray-400" />
+                          <FiPhoneCall className="h-3 md:h-5 w-3 md:w-5 text-gray-400" />
                         </div>
                         <input
                           id="phone"
@@ -302,13 +305,13 @@ export default function ContactModal({ isOpen, onClose }) {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-xs md:text-sm font-medium text-gray-700 mb-1"
                       >
                         Message
                       </label>
                       <div className="relative">
                         <div className="absolute top-3 left-3 flex items-start pointer-events-none">
-                          <FiMessageSquare className="h-5 w-5 text-gray-400" />
+                          <FiMessageSquare className="h-3 md:h-5 w-3 md:w-5 text-gray-400" />
                         </div>
                         <textarea
                           id="message"

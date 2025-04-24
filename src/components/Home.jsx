@@ -13,10 +13,16 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import Cursor from "./Cursor";
 import logo from "../assets/logo-2.png";
+import ContactModal from "./ContactModal";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const mainRef = useRef(null);
+  const [isModelOpen, setIsModelOpen] = useState(false);
+
+  const openModal = () => setIsModelOpen(true);
+
+  const closeModal = () => setIsModelOpen(false);
 
   useEffect(() => {
     // Register GSAP plugins
@@ -52,7 +58,8 @@ export default function Home() {
           </motion.div>
         ) : (
           <>
-            <Navbar />
+            <ContactModal isOpen={isModelOpen} onClose={closeModal} />
+            <Navbar openModal={openModal} />
             <HeroSection />
             <Overview />
             <Masterplan />
