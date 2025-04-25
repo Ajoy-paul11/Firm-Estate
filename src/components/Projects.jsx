@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-// import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 import { FiMapPin } from "react-icons/fi";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import image2 from "../assets/image2.jpg";
@@ -19,7 +18,7 @@ const projects = [
     title: "Firm Landscape",
     location: "Kanakapura, Bangalore",
     description:
-      "Premium land parcels nestled in the mountains with breathtaking views and exclusive amenities.",
+      "Kanakpura, this sanctuary's core principle lies in living in harmony with nature.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image2,
     size: "5-10 Acres",
@@ -30,7 +29,7 @@ const projects = [
     title: "Firm Landscape",
     location: "Mandya, Karnataka",
     description:
-      "Oceanfront properties with private beach access and panoramic Pacific views.",
+      "Mandya Farms embodies the rustic charm and fertile bounty of the region.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image6,
     size: "2-8 Acres",
@@ -41,7 +40,7 @@ const projects = [
     title: "Firm Estates",
     location: "Kushalnagara, Karnataka",
     description:
-      "Fertile land parcels in wine country, perfect for private estates with vineyard potential.",
+      "Kushalnagara, this farm signifies prosperity and growth as its central tenet.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image4,
     size: "10-25 Acres",
@@ -52,7 +51,7 @@ const projects = [
     title: "Firm Estates",
     location: "Harohalli, Bangalore",
     description:
-      "Expansive desert properties with mountain views and resort-style community amenities.",
+      "Harohalli, this haven of tranquility mirrors the self-sustaining harmony of nature, much like a lush forest.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image3,
     size: "1-5 Acres",
@@ -63,7 +62,7 @@ const projects = [
     title: "Firm Estates",
     location: "Sakleshpura, Bangalore",
     description:
-      "Expansive desert properties with mountain views and resort-style community amenities.",
+      "Sakleshpura, this farm epitomizes the joy and celebration inherent in nature.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image5,
     size: "1-5 Acres",
@@ -74,7 +73,7 @@ const projects = [
     title: "Firm Estates",
     location: "Kollegala, Bangalore",
     description:
-      "Expansive desert properties with mountain views and resort-style community amenities.",
+      "In the vicinity of Kollegala, this farm embodies abundance and growth.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image7,
     size: "1-5 Acres",
@@ -85,7 +84,7 @@ const projects = [
     title: "Firm Estates",
     location: "Mysore, Karnataka",
     description:
-      "Expansive desert properties with mountain views and resort-style community amenities.",
+      "Mysore, retreat offers a tranquil immersion into nature's embrace, reflecting the city's inherent peacefulness.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image8,
     size: "1-5 Acres",
@@ -157,9 +156,9 @@ export default function Projects() {
                 <div key={project.id} className="w-full flex-shrink-0">
                   <div className="relative">
                     <img
-                      src={project.image || "/placeholder.svg"}
+                      src={project.image || "https://placehold.co/800x600"}
                       alt={project.title}
-                      className="w-full  object-cover"
+                      className="w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
