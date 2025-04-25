@@ -7,16 +7,23 @@ import { GrSend } from "react-icons/gr";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FiPhoneCall, FiMessageSquare } from "react-icons/fi";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 export default function ContactModal({ isOpen, onClose }) {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  // const [formData, setFormData] = React.useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   message: "",
+  // });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const [errors, setErrors] = React.useState({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   // Close modal with escape key
@@ -42,68 +49,40 @@ export default function ContactModal({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const onSubmit = async (data) => {
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Validate name
-    if (!formData.name) {
-      newErrors.name = "Name is required";
-    }
-
-    // Validate email
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
-    ) {
-      newErrors.email = "Invalid email address";
-    }
-
-    // Validate phone
-    if (!formData.phone) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^[0-9\s+\-.]+$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number";
-    }
-
-    // Validate message
-    if (!formData.message) {
-      newErrors.message = "Message is required";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (validateForm()) {
+    try {
       setIsSubmitting(true);
-
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(formData);
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+
+      if (result.success) {
+        // Push the form submission event to dataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "form_submission",
+          formId: "admission_form",
+        });
+
+        toast.success("Message sent Successfully");
+
+        reset();
+        onClose();
+      } else {
+        toast.error(result.message || "Failed to send message");
+      }
+    } catch (error) {
+      toast.error(error.message || "Internal Server Error, Please try again!");
+    } finally {
       setIsSubmitting(false);
-      alert("Form submitted successfully!");
-      onClose();
     }
   };
 
@@ -205,9 +184,24 @@ export default function ContactModal({ isOpen, onClose }) {
                   </h3>
 
                   <form
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmit(onSubmit)}
                     className=" space-y-2 md:space-y-6"
                   >
+                    <input
+                      type="hidden"
+                      defaultValue="215656cf-6822-4295-a464-341673bfb290"
+                      {...register("access_key")}
+                    />
+                    <input
+                      type="hidden"
+                      defaultValue="New Website Inquiry"
+                      {...register("subject")}
+                    />
+                    <input
+                      type="hidden"
+                      value="Pragathi Infra Realty"
+                      {...register("from_name")}
+                    />
                     {/* Name Field */}
                     <div>
                       <label
@@ -224,19 +218,20 @@ export default function ContactModal({ isOpen, onClose }) {
                           id="name"
                           name="name"
                           type="text"
-                          value={formData.name}
-                          onChange={handleChange}
+                          {...register("name", {
+                            required: "Name is required",
+                          })}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.name ? "border-red-300" : "border-gray-300"
                           } rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                           placeholder="John Doe"
                         />
                       </div>
-                      {errors.name && (
-                        <p className="mt-1 text-sm text-red-600">
-                          {errors.name}
-                        </p>
-                      )}
+                        {errors.name && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors.name.message}
+                          </p>
+                        )}
                     </div>
 
                     {/* Email Field */}
@@ -255,19 +250,24 @@ export default function ContactModal({ isOpen, onClose }) {
                           id="email"
                           name="email"
                           type="email"
-                          value={formData.email}
-                          onChange={handleChange}
+                          {...register("email", {
+                            required: "Email is required",
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: "Invalid email address",
+                            },
+                          })}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.email ? "border-red-300" : "border-gray-300"
                           } rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                           placeholder="john@example.com"
                         />
                       </div>
-                      {errors.email && (
-                        <p className="mt-1 text-sm text-red-600">
-                          {errors.email}
-                        </p>
-                      )}
+                        {errors.email && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors.email.message}
+                          </p>
+                        )}
                     </div>
 
                     {/* Phone Field */}
@@ -286,19 +286,20 @@ export default function ContactModal({ isOpen, onClose }) {
                           id="phone"
                           name="phone"
                           type="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
+                          {...register("phone", {
+                            required: "Phone number is required",
+                          })}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.phone ? "border-red-300" : "border-gray-300"
                           } rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent`}
                           placeholder="(123) 456-7890"
                         />
                       </div>
-                      {errors.phone && (
-                        <p className="mt-1 text-sm text-red-600">
-                          {errors.phone}
-                        </p>
-                      )}
+                        {errors.phone && (
+                          <p className="mt-1 text-sm text-red-600">
+                            {errors.phone.message}
+                          </p>
+                        )}
                     </div>
 
                     {/* Message Field */}
@@ -317,8 +318,9 @@ export default function ContactModal({ isOpen, onClose }) {
                           id="message"
                           name="message"
                           rows={4}
-                          value={formData.message}
-                          onChange={handleChange}
+                          {...register("message", {
+                            required: "Message is required",
+                          })}
                           className={`block w-full pl-10 pr-3 py-3 border ${
                             errors.message
                               ? "border-red-300"
@@ -329,7 +331,7 @@ export default function ContactModal({ isOpen, onClose }) {
                       </div>
                       {errors.message && (
                         <p className="mt-1 text-sm text-red-600">
-                          {errors.message}
+                          {errors.message.message}
                         </p>
                       )}
                     </div>

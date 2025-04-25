@@ -5,7 +5,13 @@ import { motion } from "framer-motion"
 // import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 import { FiMapPin } from "react-icons/fi"
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa"
-import { image } from "framer-motion/client"
+import image2 from "../assets/image2.jpg"
+import image3 from "../assets/image3.jpg"
+import image4 from "../assets/image4.jpg"
+import image5 from "../assets/image7.jpg"
+import image6 from "../assets/image6.jpg"
+import image7 from "../assets/kushalnagar-land.jpg"
+import image8 from "../assets/mysore-land.jpg"
 
 
 const projects = [
@@ -15,7 +21,7 @@ const projects = [
     location: "Kanakapura, Bangalore",
     description: "Premium land parcels nestled in the mountains with breathtaking views and exclusive amenities.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image2,
     size: "5-10 Acres",
     price: "Starting at $2.5M",
   },
@@ -25,17 +31,17 @@ const projects = [
     location: "Mandya, Karnataka",
     description: "Oceanfront properties with private beach access and panoramic Pacific views.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image6,
     size: "2-8 Acres",
     price: "Starting at $3.8M",
   },
   {
     id: 3,
     title: "Firm Estates",
-    location: "Kushalnagar, Karnataka",
+    location: "Kushalnagara, Karnataka",
     description: "Fertile land parcels in wine country, perfect for private estates with vineyard potential.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image4,
     size: "10-25 Acres",
     price: "Starting at $4.2M",
   },
@@ -45,37 +51,37 @@ const projects = [
     location: "Harohalli, Bangalore",
     description: "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image3,
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
   {
     id: 5,
     title: "Firm Estates",
-    location: "Harohalli, Bangalore",
+    location: "Sakleshpura, Bangalore",
     description: "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image5,
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
   {
     id: 6,
     title: "Firm Estates",
-    location: "Harohalli, Bangalore",
+    location: "Kollegala, Bangalore",
     description: "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image7,
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
   {
     id: 7,
     title: "Firm Estates",
-    location: "Harohalli, Bangalore",
+    location: "Mysore, Karnataka",
     description: "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
-    image: "https://placehold.co/800x600/",
+    image: image8,
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
@@ -140,17 +146,17 @@ export default function Projects() {
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-[500px] object-cover"
+                      className="w-full  object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                      <div className="flex items-center gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-3 absolute md:relative bottom-0.5 md:bottom-0 left-2.5 md:left-0">
                         <FiMapPin className="w-5 h-5" />
                         <span className="text-white/90">{project.location}</span>
                       </div>
-                      <h3 className="text-3xl font-bold mb-3">{project.title}</h3>
-                      <p className="text-white/80 mb-4 max-w-2xl">{project.description}</p>
+                      <h3 className="hidden md:block text-3xl font-bold mb-3">{project.title}</h3>
+                      <p className=" hidden md:block text-white/80 mb-4 max-w-2xl">{project.description}</p>
 
                       {/* <div className="flex flex-wrap gap-4 mb-6">
                         <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -177,14 +183,14 @@ export default function Projects() {
 
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-teal-700 p-3 rounded-full shadow-lg z-10 backdrop-blur-sm"
+            className="absolute top-1/2 -left-9 md:left-4 transform -translate-y-1/2 bg-transparent md:bg-white/80 md:hover:bg-white text-teal-700 p-3 rounded-full md:shadow-lg z-10 md:backdrop-blur-sm"
           >
             <FaChevronCircleLeft className="w-6 h-6" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-teal-700 p-3 rounded-full shadow-lg z-10 backdrop-blur-sm"
+            className="absolute top-1/2 -right-9 md:right-4 transform -translate-y-1/2 bg-transparent md:bg-white/80 md:hover:bg-white text-teal-700 p-3 rounded-full md:shadow-lg z-10 md:backdrop-blur-sm"
           >
             <FaChevronCircleRight className="w-6 h-6" />
           </button>

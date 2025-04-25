@@ -12,12 +12,12 @@ import logo from "../assets/logo-pragathi.png";
 import ContactModal from "./ContactModal";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Overview", href: "#overview" },
-  { name: "Masterplan", href: "#masterplan" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", to: "home" },
+  { name: "Overview", to: "overview" },
+  { name: "Masterplan", to: "masterplan" },
+  { name: "About", to: "about" },
+  { name: "Projects", to: "projects" },
+  { name: "Contact", to: "contact" },
 ];
 
 export default function Navbar({ openModal }) {
@@ -40,11 +40,11 @@ export default function Navbar({ openModal }) {
     };
   }, []);
 
-  const handleLinkClick = (href) => {
+  const handleLinkClick = () => {
     setIsOpen(false);
-    document.querySelector(href)?.scrollIntoView({
-      behavior: "smooth",
-    });
+    // document.querySelector(href)?.scrollIntoView({
+    //   behavior: "smooth",
+    // });
   };
 
   return (
@@ -69,10 +69,14 @@ export default function Navbar({ openModal }) {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick(link.href);
+              to={link.to}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1500}
+              onClick={() => {
+                // e.preventDefault();
+                handleLinkClick();
               }}
               className={` ${
                 scrolled ? "text-slate-700" : "text-white"
@@ -115,11 +119,15 @@ export default function Navbar({ openModal }) {
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
+                  to={link.to}
+                  onClick={() => {
+                    // e.preventDefault();
+                    handleLinkClick();
                   }}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={1500}
                   className={` text-slate-700 hover:text-teal-600 transition-colors py-2 text-lg
                   }`}
                 >
