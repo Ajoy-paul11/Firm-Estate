@@ -43,7 +43,7 @@ export default function Home() {
       <AnimatePresence>
         {loading ? (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-teal-900"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-green-300 to-teal-600"
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
