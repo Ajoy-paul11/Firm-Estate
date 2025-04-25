@@ -1,34 +1,38 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { gsap } from "gsap"
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { gsap } from "gsap";
 // import { ChevronDown } from "lucide-react"
 import { FaChevronDown } from "react-icons/fa";
 
 export default function HeroSection() {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
-  })
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".hero-text", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, delay: 0.5 })
-    }, ref)
+      gsap.fromTo(
+        ".hero-text",
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.2, delay: 0.5 }
+      );
+    }, ref);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   const scrollToOverview = () => {
     document.querySelector("#overview")?.scrollIntoView({
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   return (
     <motion.section
@@ -42,17 +46,18 @@ export default function HeroSection() {
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://ik.imagekit.io/ajoy/bg-image-firmland?updatedAt=1745409971157')",
+            backgroundImage:
+              "url('https://ik.imagekit.io/ajoy/bg-image-firmland?updatedAt=1745409971157')",
           }}
         />
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <motion.h1 className="hero-text text-5xl md:text-7xl font-bold text-white mb-6">
-        Investing in Infrastructure,
+          Investing in Infrastructure,
         </motion.h1>
         <motion.h1 className="hero-text text-5xl md:text-7xl font-bold text-white mb-6">
-        Cultivating Growth.
+          Cultivating Growth.
         </motion.h1>
         {/* <motion.p className="hero-text text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
           Discover exclusive land opportunities in prime locations for your dream estate
@@ -80,8 +85,11 @@ export default function HeroSection() {
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
       >
-        <FaChevronDown className="text-white w-10 h-10 cursor-pointer" onClick={scrollToOverview} />
+        <FaChevronDown
+          className="text-white w-10 h-10 cursor-pointer"
+          onClick={scrollToOverview}
+        />
       </motion.div>
     </motion.section>
-  )
+  );
 }

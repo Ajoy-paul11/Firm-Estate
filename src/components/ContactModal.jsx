@@ -50,7 +50,6 @@ export default function ContactModal({ isOpen, onClose }) {
   }, [isOpen]);
 
   const onSubmit = async (data) => {
-
     try {
       setIsSubmitting(true);
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -227,11 +226,11 @@ export default function ContactModal({ isOpen, onClose }) {
                           placeholder="John Doe"
                         />
                       </div>
-                        {errors.name && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors.name.message}
-                          </p>
-                        )}
+                      {errors.name && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.name.message}
+                        </p>
+                      )}
                     </div>
 
                     {/* Email Field */}
@@ -263,11 +262,11 @@ export default function ContactModal({ isOpen, onClose }) {
                           placeholder="john@example.com"
                         />
                       </div>
-                        {errors.email && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors.email.message}
-                          </p>
-                        )}
+                      {errors.email && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
 
                     {/* Phone Field */}
@@ -295,11 +294,11 @@ export default function ContactModal({ isOpen, onClose }) {
                           placeholder="(123) 456-7890"
                         />
                       </div>
-                        {errors.phone && (
-                          <p className="mt-1 text-sm text-red-600">
-                            {errors.phone.message}
-                          </p>
-                        )}
+                      {errors.phone && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {errors.phone.message}
+                        </p>
+                      )}
                     </div>
 
                     {/* Message Field */}

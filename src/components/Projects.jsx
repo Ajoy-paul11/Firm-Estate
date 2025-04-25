@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 // import { ChevronLeft, ChevronRight, MapPin } from "lucide-react"
-import { FiMapPin } from "react-icons/fi"
-import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa"
-import image2 from "../assets/image2.jpg"
-import image3 from "../assets/image3.jpg"
-import image4 from "../assets/image4.jpg"
-import image5 from "../assets/image7.jpg"
-import image6 from "../assets/image6.jpg"
-import image7 from "../assets/kushalnagar-land.jpg"
-import image8 from "../assets/mysore-land.jpg"
-
+import { FiMapPin } from "react-icons/fi";
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
+import image4 from "../assets/image4.jpg";
+import image5 from "../assets/image7.jpg";
+import image6 from "../assets/image6.jpg";
+import image7 from "../assets/kushalnagar-land.jpg";
+import image8 from "../assets/mysore-land.jpg";
 
 const projects = [
   {
     id: 1,
     title: "Firm Landscape",
     location: "Kanakapura, Bangalore",
-    description: "Premium land parcels nestled in the mountains with breathtaking views and exclusive amenities.",
+    description:
+      "Premium land parcels nestled in the mountains with breathtaking views and exclusive amenities.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image2,
     size: "5-10 Acres",
@@ -29,7 +29,8 @@ const projects = [
     id: 2,
     title: "Firm Landscape",
     location: "Mandya, Karnataka",
-    description: "Oceanfront properties with private beach access and panoramic Pacific views.",
+    description:
+      "Oceanfront properties with private beach access and panoramic Pacific views.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image6,
     size: "2-8 Acres",
@@ -39,7 +40,8 @@ const projects = [
     id: 3,
     title: "Firm Estates",
     location: "Kushalnagara, Karnataka",
-    description: "Fertile land parcels in wine country, perfect for private estates with vineyard potential.",
+    description:
+      "Fertile land parcels in wine country, perfect for private estates with vineyard potential.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image4,
     size: "10-25 Acres",
@@ -49,7 +51,8 @@ const projects = [
     id: 4,
     title: "Firm Estates",
     location: "Harohalli, Bangalore",
-    description: "Expansive desert properties with mountain views and resort-style community amenities.",
+    description:
+      "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image3,
     size: "1-5 Acres",
@@ -59,7 +62,8 @@ const projects = [
     id: 5,
     title: "Firm Estates",
     location: "Sakleshpura, Bangalore",
-    description: "Expansive desert properties with mountain views and resort-style community amenities.",
+    description:
+      "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image5,
     size: "1-5 Acres",
@@ -69,7 +73,8 @@ const projects = [
     id: 6,
     title: "Firm Estates",
     location: "Kollegala, Bangalore",
-    description: "Expansive desert properties with mountain views and resort-style community amenities.",
+    description:
+      "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image7,
     size: "1-5 Acres",
@@ -79,32 +84,36 @@ const projects = [
     id: 7,
     title: "Firm Estates",
     location: "Mysore, Karnataka",
-    description: "Expansive desert properties with mountain views and resort-style community amenities.",
+    description:
+      "Expansive desert properties with mountain views and resort-style community amenities.",
     // image: "/placeholder.svg?height=600&width=800",
     image: image8,
     size: "1-5 Acres",
     price: "Starting at $1.8M",
   },
-]
+];
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const sliderRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef(null);
 
   const nextSlide = () => {
-    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1))
-  }
+    setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
 
   const prevSlide = () => {
-    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1))
-  }
+    setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
 
   const goToSlide = (index) => {
-    setActiveIndex(index)
-  }
+    setActiveIndex(index);
+  };
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-20 md:py-32 bg-slate-50 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2
@@ -130,12 +139,16 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-lg text-slate-600 max-w-3xl mx-auto"
           >
-            Explore our collection of premium land properties in the most desirable locations.
+            Explore our collection of premium land properties in the most
+            desirable locations.
           </motion.p>
         </div>
 
         <div className="relative">
-          <div ref={sliderRef} className="overflow-hidden rounded-2xl shadow-2xl">
+          <div
+            ref={sliderRef}
+            className="overflow-hidden rounded-2xl shadow-2xl"
+          >
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -153,10 +166,16 @@ export default function Projects() {
                     <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                       <div className="flex items-center gap-2 mb-3 absolute md:relative bottom-0.5 md:bottom-0 left-2.5 md:left-0">
                         <FiMapPin className="w-5 h-5" />
-                        <span className="text-white/90">{project.location}</span>
+                        <span className="text-white/90">
+                          {project.location}
+                        </span>
                       </div>
-                      <h3 className="hidden md:block text-3xl font-bold mb-3">{project.title}</h3>
-                      <p className=" hidden md:block text-white/80 mb-4 max-w-2xl">{project.description}</p>
+                      <h3 className="hidden md:block text-3xl font-bold mb-3">
+                        {project.title}
+                      </h3>
+                      <p className=" hidden md:block text-white/80 mb-4 max-w-2xl">
+                        {project.description}
+                      </p>
 
                       {/* <div className="flex flex-wrap gap-4 mb-6">
                         <div className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -223,5 +242,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
