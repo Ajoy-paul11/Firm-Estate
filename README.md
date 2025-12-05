@@ -122,8 +122,12 @@ In your form component, include the access key as a hidden input:
 
 ## 📸 Screenshots
 
-🏠 Landing Page  
- ![Pragathi Infra Realty Page](./public/screenshot/landing-page.png)
+🏠 Home
+
+<p align="center">
+  <img src="./public/screenshot/landing-page.png" alt="Pragathi Infra Realty Page" style="width: 1000px; height: 600px; object-fit: cover; object-position: top;">
+  .....
+</p>
 
 ## 🌐 Live Website
 
