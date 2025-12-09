@@ -120,15 +120,6 @@ In your form component, include the access key as a hidden input:
 
 - Optionally, wrap the submission in react-hook-form for validation and use react-toastify to show success/error messages.
 
-## 📸 Screenshots
-
-🏠 Home
-
-<p align="center">
-  <img src="./public/screenshot/landing-page.png" alt="Pragathi Infra Realty Page" style="width: 1000px; height: 600px; object-fit: cover; object-position: top;">
-  .....
-</p>
-
 ## 🌐 Live Website
 
 - Website: [pragathiinfrarealty.com](https://pragathiinfrarealty.com)
